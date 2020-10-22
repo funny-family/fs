@@ -11,7 +11,10 @@ console.log('linkList:', linkList);
 //   <li>${}</li>
 // `;
 
-// console.log(linkListContainer);
+// https://stackoverflow.com/questions/31829826/print-javascript-array-in-html
+// https://www.google.com/search?ei=Kr6RX5upCOmgrgTz_LmQCg&q=js+print+data+from+array+to+html&oq=js+print+data+from+array+to+h&gs_lcp=CgZwc3ktYWIQAxgAMggIIRAWEB0QHjoECAAQQzoICAAQsQMQgwE6BQgAELEDOgIIADoFCC4QsQM6BwgAELEDEEM6BggAEBYQHjoICAAQFhAKEB5Qs8EJWJ3PCmDW3QpoBnABeACAAcsBiAGeIpIBBjAuMzIuMZgBAKABAaoBB2d3cy13aXrAAQE&sclient=psy-ab
+// https://stackoverflow.com/questions/44127872/convert-array-of-objects-into-html-table-with-jquery-or-javascript
+// https://www.google.com/search?ei=Ub-RX8y3K-_2qwGp3ZiwBA&q=javascript+array+of+objects+to+html+table&oq=js+array+of+objects+in+ht&gs_lcp=CgZwc3ktYWIQAxgBMgYIABAWEB4yBggAEBYQHjoECAAQRzoECAAQQzoCCAA6CAghEBYQHRAeUMQSWJs5YNtYaARwAngAgAGeAYgBxgqSAQQwLjEwmAEAoAEBqgEHZ3dzLXdpesgBCMABAQ&sclient=psy-ab
 
 
 linkFinder.addEventListener('input', (event) => {
