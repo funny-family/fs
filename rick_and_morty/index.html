@@ -57,13 +57,17 @@
 <style>.IPA, .Unicode { font-family: "Arial Unicode MS", "Lucida Sans Unicode"; }</style><style>			.navboxNavigation_link { text-decoration:none; border-bottom:1px dotted; }			.navboxNavigation_link:hover, .navboxNavigation_link:focus { text-decoration:none; border-bottom:1px solid; }			.navboxNavigation_link.mw-selflink { border-bottom:none; }
 </style>
 	<link rel="stylesheet" href="fs_task.css">
-	<script src="fs_task.js"></script>
+	<script defer src="fs_task.js"></script>
 </head>
 <body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Рик_и_Морти rootpage-Рик_и_Морти skin-vector action-view skin-vector-legacy">
 
 
 	<section class="fs-task">
-        <input type="text" />
+        <input
+            class="link-searcher__input"
+            type="text"
+        />
+        <ul class="link-list-container"></ul>
     </section>
 
 
@@ -72,7 +76,7 @@
 <div id="content" class="mw-body" role="main">
 	<a id="top"></a>
 	<div id="siteNotice" class="mw-body-content"><div id="centralNotice" class="cn-wlm2020ru">
-<style> 
+<style>
 .skin-monobook #siteNotice p {
    padding-left: 90px !important;
    padding-right: 64px !important;

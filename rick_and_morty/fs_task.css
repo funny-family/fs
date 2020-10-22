@@ -1,5 +1,25 @@
-.fs-task {
+.fs-task {}
+
+.link-list-container {
   position: relative;
 
-  z-index: 99;
+  width: 50%;
+
+  background-color: #ffffff;
+
+  border: 1px solid black;
+  border-radius: 10px;
+
+  z-index: 999;
+}
+
+.link-searcher__input {
+  position: relative;
+
+  z-index: 999;
+}
+
+.link-list-container ul {
+  display: flex;
+  flex-direction: column;
 }
