@@ -4,6 +4,7 @@ const linkListContainer = document.querySelector('.link-list-container');
 const HTMLLinkList = document.getElementsByTagName('a');
 const linkList = [];
 let filteredLinkList = [];
+let linksFoundResult = 0;
 
 for (let i = 0; i < HTMLLinkList.length; i++) {
   const href = HTMLLinkList[i].href;
@@ -25,7 +26,14 @@ linkFinder.addEventListener('input', (event) => {
     return link.loweCaseText.indexOf(inputValue) >= 0;
   });
 
-  console.log(filteredLinkList);
+  // for (let i = 0; i < filteredLinkList.length; i++) {
+    //   linkListContainer.innerHTML += `
+    //     <li><a herf="${filteredLinkList[i].href}">${filteredLinkList[i].link}</a></li>
+    //   `;
+    // }
+    
+  linksFoundResult = filteredLinkList.length;
+  console.log(filteredLinkList, linksFoundResult);
 });
 
 // console.log(linkList); 
