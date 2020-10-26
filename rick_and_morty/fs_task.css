@@ -1,9 +1,10 @@
 .fs-task {}
 
-.link-list-container {
-  position: relative;
+.search-box {
+  position: absolute;
 
-  width: 50%;
+  top: 0;
+  left: 0;
 
   background-color: #ffffff;
 
@@ -13,13 +14,42 @@
   z-index: 999;
 }
 
-.link-searcher__input {
+.link-list-container {
   position: relative;
 
-  z-index: 999;
+  /* width: 50%; */
+
+  /* background-color: #ffffff; */
+
+  /* border: 1px solid black; */
+  /* border-radius: 10px; */
+
+  /* z-index: 999; */
+}
+
+.link-searcher {
+  position: relative;
+
+  left: 20px;
+
+  z-index: 99999;
+}
+
+.search-result-field {
+  position: relative;
+
+  left: 20px;
+
+  z-index: 99999;
 }
 
 .link-list-container ul {
   display: flex;
   flex-direction: column;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
 }
