@@ -19,16 +19,10 @@ for (let i = 0; i < HTMLLinkList.length; i++) {
   });
 }
 
-// for (let i = 0; i < filteredLinkList.length; i++) {
-//   linkListContainer.innerHTML += `
-//     <li><a href="${filteredLinkList[i].href}">${filteredLinkList[i].text}</a></li>
-//   `;
-// }
 
-function updateLinkList() {
+function updateSearchResult() {
   for (let i = 0; i < filteredLinkList.length; i++) {
-    searchResultField.innerText = `найдено ${linksFoundResult}`;
-    linkListContainer.innerHTML = `
+    linkListContainer.innerHTML += `
       <li><a href="${filteredLinkList[i].href}">${filteredLinkList[i].text}</a></li>
     `;
   }
@@ -43,6 +37,7 @@ linkFinder.addEventListener('input', (event) => {
     return;
   }
 
+
   filteredLinkList = linkList.filter((link) => {
     return link.loweCaseText.indexOf(inputValue) >= 0; // first variant
 
@@ -51,14 +46,16 @@ linkFinder.addEventListener('input', (event) => {
     //   .every((letter) => link.loweCaseText.indexOf(letter) >= 0); // second variant
   });
 
-  updateLinkList();
+  updateSearchResult();
 
   // for (let i = 0; i < filteredLinkList.length; i++) {
-    //   linkListContainer.innerHTML += `
-    //     <li><a href="${filteredLinkList[i].href}">${filteredLinkList[i].link}</a></li>
-    //   `;
-    // }
+  //     linkListContainer.innerHTML += `
+  //     <li><a href="${filteredLinkList[i].href}">${filteredLinkList[i].text}</a></li>
+  //   `;
+  // }
 
   linksFoundResult = filteredLinkList.length;
+  searchResultField.innerText = `найдено ${linksFoundResult}`;
+
   console.log(filteredLinkList, linksFoundResult);
 });

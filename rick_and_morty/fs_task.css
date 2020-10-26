@@ -3,8 +3,8 @@
 .search-box {
   position: absolute;
 
-  top: 0;
-  left: 0;
+  /* top: 0;
+  left: 0; */
 
   background-color: #ffffff;
 
@@ -43,7 +43,7 @@
   z-index: 99999;
 }
 
-.link-list-container ul {
+.search-box ul {
   display: flex;
   flex-direction: column;
 }
