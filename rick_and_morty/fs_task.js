@@ -6,7 +6,8 @@ const HTMLLinkList = document.getElementsByTagName('a');
 const linkList = [];
 let filteredLinkList = [];
 
-let linksFoundResult = 0;
+let linkListTemplate = null;
+// let linksFoundResult = 0;
 
 for (let i = 0; i < HTMLLinkList.length; i++) {
   const href = HTMLLinkList[i].href;
@@ -19,14 +20,17 @@ for (let i = 0; i < HTMLLinkList.length; i++) {
   });
 }
 
-
 function updateSearchResult() {
   for (let i = 0; i < filteredLinkList.length; i++) {
-    linkListContainer.innerHTML += `
-      <li><a href="${filteredLinkList[i].href}">${filteredLinkList[i].text}</a></li>
+    linkListTemplate = `
+      <a href="${filteredLinkList[i].href}">${filteredLinkList[i].text}</a>
     `;
+
+    linkListContainer.innerHTML = linkListTemplate;
   }
 }
+
+updateSearchResult();
 
 linkFinder.addEventListener('input', (event) => {
   const inputValue = event.target.value.toLowerCase();
@@ -36,7 +40,6 @@ linkFinder.addEventListener('input', (event) => {
     linkListContainer.innerHTML = null;
     return;
   }
-
 
   filteredLinkList = linkList.filter((link) => {
     return link.loweCaseText.indexOf(inputValue) >= 0; // first variant
@@ -54,8 +57,13 @@ linkFinder.addEventListener('input', (event) => {
   //   `;
   // }
 
-  linksFoundResult = filteredLinkList.length;
+  const linksFoundResult = filteredLinkList.length;
   searchResultField.innerText = `найдено ${linksFoundResult}`;
+
+  if (linksFoundResult === 0) {
+    linkListContainer.innerHTML = null;
+    return;
+  }
 
   console.log(filteredLinkList, linksFoundResult);
 });
