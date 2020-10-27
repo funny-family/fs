@@ -27,7 +27,6 @@ function updateSearchResult() {
       <li><a href="${filteredLinkList[i].href}">${filteredLinkList[i].text}</a></li>
     `;
   }
-  return;
 }
 
 linkFinder.addEventListener('input', (event) => {
@@ -43,11 +42,11 @@ linkFinder.addEventListener('input', (event) => {
 
   filteredLinkList = linkList.filter((link) => {
 
-    return link.loweCaseText.indexOf(inputValue) >= 0; // first option
+    // return link.loweCaseText.indexOf(inputValue) >= 0; // first option
 
-    // return inputValue
-    //   .split('')
-    //   .every((letter) => link.loweCaseText.indexOf(letter) >= 0); // second option
+    return inputValue
+      .split('')
+      .every((letter) => link.loweCaseText.indexOf(letter) >= 0); // second option
   });
 
   updateSearchResult();
