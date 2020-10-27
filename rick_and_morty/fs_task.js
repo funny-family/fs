@@ -40,8 +40,9 @@ linkFinder.addEventListener('input', (event) => {
     return;
   }
 
-  filteredLinkList = linkList.filter((link) => {
+  updateSearchResult();
 
+  filteredLinkList = linkList.filter((link) => {
     // return link.loweCaseText.indexOf(inputValue) >= 0; // first option
 
     return inputValue
@@ -59,6 +60,8 @@ linkFinder.addEventListener('input', (event) => {
     document.querySelector('.search-box-container').style.display = 'none';
     return;
   }
+
+  updateSearchResult();
 
   console.log(filteredLinkList, linksFoundResult);
 });
