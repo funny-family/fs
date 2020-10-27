@@ -8,6 +8,8 @@ let filteredLinkList = [];
 
 let linkListTemplate = null;
 
+document.querySelector('.search-box-container').style.display = 'none';
+
 for (let i = 0; i < HTMLLinkList.length; i++) {
   const href = HTMLLinkList[i].href;
   const text = HTMLLinkList[i].innerText;
@@ -30,10 +32,12 @@ function updateSearchResult() {
 
 linkFinder.addEventListener('input', (event) => {
   const inputValue = event.target.value.toLowerCase();
+  document.querySelector('.search-box-container').style.display = 'block';
 
   if (inputValue === '') {
     searchResultField.innerText = null;
     linkListContainer.innerHTML = null;
+    document.querySelector('.search-box-container').style.display = 'none';
     return;
   }
 
@@ -46,15 +50,16 @@ linkFinder.addEventListener('input', (event) => {
     //   .every((letter) => link.loweCaseText.indexOf(letter) >= 0); // second option
   });
 
+  updateSearchResult();
+
   const linksFoundResult = filteredLinkList.length;
-  searchResultField.innerText = `найдено ${linksFoundResult}`;
+  searchResultField.innerText = `найдено ${filteredLinkList.length}`;
 
   if (linksFoundResult === 0) {
     linkListContainer.innerHTML = null;
+    document.querySelector('.search-box-container').style.display = 'none';
     return;
   }
-
-  updateSearchResult();
 
   console.log(filteredLinkList, linksFoundResult);
 });
