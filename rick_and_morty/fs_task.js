@@ -7,7 +7,6 @@ const linkList = [];
 let filteredLinkList = [];
 
 let linkListTemplate = null;
-// let linksFoundResult = 0;
 
 for (let i = 0; i < HTMLLinkList.length; i++) {
   const href = HTMLLinkList[i].href;
@@ -22,15 +21,12 @@ for (let i = 0; i < HTMLLinkList.length; i++) {
 
 function updateSearchResult() {
   for (let i = 0; i < filteredLinkList.length; i++) {
-    linkListTemplate = `
-      <a href="${filteredLinkList[i].href}">${filteredLinkList[i].text}</a>
+    linkListContainer.innerHTML += `
+      <li><a href="${filteredLinkList[i].href}">${filteredLinkList[i].text}</a></li>
     `;
-
-    linkListContainer.innerHTML = linkListTemplate;
   }
+  return;
 }
-
-updateSearchResult();
 
 linkFinder.addEventListener('input', (event) => {
   const inputValue = event.target.value.toLowerCase();
@@ -42,20 +38,13 @@ linkFinder.addEventListener('input', (event) => {
   }
 
   filteredLinkList = linkList.filter((link) => {
-    return link.loweCaseText.indexOf(inputValue) >= 0; // first variant
+
+    return link.loweCaseText.indexOf(inputValue) >= 0; // first option
 
     // return inputValue
     //   .split('')
-    //   .every((letter) => link.loweCaseText.indexOf(letter) >= 0); // second variant
+    //   .every((letter) => link.loweCaseText.indexOf(letter) >= 0); // second option
   });
-
-  updateSearchResult();
-
-  // for (let i = 0; i < filteredLinkList.length; i++) {
-  //     linkListContainer.innerHTML += `
-  //     <li><a href="${filteredLinkList[i].href}">${filteredLinkList[i].text}</a></li>
-  //   `;
-  // }
 
   const linksFoundResult = filteredLinkList.length;
   searchResultField.innerText = `найдено ${linksFoundResult}`;
@@ -64,6 +53,8 @@ linkFinder.addEventListener('input', (event) => {
     linkListContainer.innerHTML = null;
     return;
   }
+
+  updateSearchResult();
 
   console.log(filteredLinkList, linksFoundResult);
 });
